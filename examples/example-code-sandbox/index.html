@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Code Sandbox — BrowserMesh Example</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app">
+    <!-- Toolbar -->
+    <div class="toolbar">
+      <h1>Code Sandbox</h1>
+      <span class="spacer"></span>
+      <div class="users-indicator">
+        <span>Tabs:</span>
+        <span class="count" id="user-count">1</span>
+      </div>
+      <button class="btn btn-run" id="btn-run">Run</button>
+      <button class="btn" id="btn-clear">Clear</button>
+    </div>
+
+    <!-- Split Panes -->
+    <div class="panes">
+      <!-- Editor Pane -->
+      <div class="pane">
+        <div class="pane-header">
+          <span class="dot"></span>
+          Editor
+        </div>
+        <textarea id="editor" spellcheck="false" placeholder="// Write your JavaScript here...
+// Open this page in another tab to see live sync.
+
+function greet(name) {
+  return 'Hello, ' + name + '!';
+}
+
+console.log(greet('BrowserMesh'));
+console.log('2 + 2 =', 2 + 2);
+"></textarea>
+      </div>
+
+      <!-- Output Pane -->
+      <div class="pane">
+        <div class="pane-header">
+          <span class="dot" style="background: var(--yellow)"></span>
+          Output
+        </div>
+        <div id="output"></div>
+      </div>
+    </div>
+
+    <!-- Status Bar -->
+    <div class="status-bar">
+      <span id="pod-status">Pod: initializing...</span>
+      <span class="spacer"></span>
+      <span id="sync-status">Sync: ready</span>
+    </div>
+  </div>
+
+  <script type="module" src="app.mjs"></script>
+</body>
+</html>

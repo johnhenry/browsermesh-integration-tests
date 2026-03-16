@@ -1,0 +1,291 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #0f1117;
+  --surface: #1a1d27;
+  --border: #2a2d3a;
+  --text: #e4e6ef;
+  --text-muted: #8b8fa3;
+  --accent: #6c8cff;
+  --accent-dim: #4a6ad9;
+  --self-bubble: #2a3a5c;
+  --other-bubble: #252836;
+  --online: #4cdb8a;
+  --typing: #f0c040;
+  --radius: 10px;
+}
+
+html, body {
+  height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* ---- Username modal ---- */
+#username-modal {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 100;
+}
+
+#username-modal.hidden {
+  display: none;
+}
+
+.modal-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 2.5rem;
+  text-align: center;
+  max-width: 380px;
+  width: 90%;
+}
+
+.modal-card h2 {
+  margin-bottom: 0.5rem;
+  font-size: 1.4rem;
+}
+
+.modal-card p {
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+}
+
+.modal-card input {
+  width: 100%;
+  padding: 0.7rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  outline: none;
+}
+
+.modal-card input:focus {
+  border-color: var(--accent);
+}
+
+.modal-card button {
+  width: 100%;
+  padding: 0.7rem;
+  border: none;
+  border-radius: var(--radius);
+  background: var(--accent);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.modal-card button:hover {
+  background: var(--accent-dim);
+}
+
+/* ---- Main layout ---- */
+#app {
+  display: none;
+  height: 100vh;
+  grid-template-columns: 1fr 220px;
+  grid-template-rows: auto 1fr auto;
+}
+
+#app.active {
+  display: grid;
+}
+
+/* ---- Header ---- */
+header {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1.25rem;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+
+header h1 {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+header .badge {
+  font-size: 0.75rem;
+  background: var(--accent);
+  color: #fff;
+  padding: 0.15rem 0.55rem;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+header .pod-id {
+  margin-left: auto;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-family: monospace;
+}
+
+/* ---- Messages ---- */
+#messages {
+  padding: 1rem 1.25rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.msg {
+  max-width: 70%;
+  padding: 0.55rem 0.85rem;
+  border-radius: var(--radius);
+  font-size: 0.92rem;
+  line-height: 1.45;
+  word-wrap: break-word;
+}
+
+.msg.self {
+  align-self: flex-end;
+  background: var(--self-bubble);
+  border-bottom-right-radius: 3px;
+}
+
+.msg.other {
+  align-self: flex-start;
+  background: var(--other-bubble);
+  border-bottom-left-radius: 3px;
+}
+
+.msg .sender {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 0.15rem;
+}
+
+.msg.self .sender {
+  color: #8baaf0;
+}
+
+.msg .time {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  margin-top: 0.2rem;
+  text-align: right;
+}
+
+.msg.system {
+  align-self: center;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  font-style: italic;
+  max-width: 100%;
+}
+
+/* ---- Sidebar ---- */
+#sidebar {
+  background: var(--surface);
+  border-left: 1px solid var(--border);
+  padding: 1rem;
+  overflow-y: auto;
+}
+
+#sidebar h3 {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  letter-spacing: 0.06em;
+  margin-bottom: 0.75rem;
+}
+
+.user-entry {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0;
+  font-size: 0.88rem;
+}
+
+.user-entry .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--online);
+  flex-shrink: 0;
+}
+
+.user-entry .dot.typing {
+  background: var(--typing);
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.user-entry .name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.user-entry .you {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+/* ---- Input area ---- */
+#input-area {
+  grid-column: 1 / -1;
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+}
+
+#input-area input {
+  flex: 1;
+  padding: 0.65rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 0.95rem;
+  outline: none;
+}
+
+#input-area input:focus {
+  border-color: var(--accent);
+}
+
+#input-area button {
+  padding: 0.65rem 1.4rem;
+  border: none;
+  border-radius: var(--radius);
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+#input-area button:hover {
+  background: var(--accent-dim);
+}

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Game Lobby — BrowserMesh Example</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header>
+  <h1>BrowserMesh Game Lobby</h1>
+  <span class="player-info" id="player-info"></span>
+</header>
+
+<main>
+  <!-- Lobby View -->
+  <section id="lobby">
+    <div class="lobby-prompt">
+      <h2>Tic-Tac-Toe</h2>
+      <p>Peer-to-peer multiplayer via BroadcastChannel. Open two tabs to play.</p>
+    </div>
+
+    <div class="name-input">
+      <input type="text" id="name-input" placeholder="Your name" maxlength="20" />
+    </div>
+
+    <div class="lobby-actions">
+      <button id="btn-create" class="primary">Create Room</button>
+      <button id="btn-join-toggle">Join Room</button>
+    </div>
+
+    <div id="room-created" class="room-id-display" style="display:none">
+      <small>Share this Room ID:</small>
+      <code id="room-id-text"></code>
+      <small>Waiting for opponent...</small>
+    </div>
+
+    <div id="join-section" class="join-input" style="display:none">
+      <input type="text" id="room-id-input" placeholder="Paste Room ID" />
+      <button id="btn-join" class="primary">Join</button>
+    </div>
+
+    <div class="player-list" id="player-list-section" style="display:none">
+      <h3>Players</h3>
+      <ul id="player-list"></ul>
+      <div style="margin-top:0.75rem; text-align:center">
+        <button id="btn-start" class="primary" disabled>Start Game</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Game View -->
+  <section id="game">
+    <div class="status-bar" id="status-bar">Waiting...</div>
+
+    <div class="board" id="board">
+      <div class="cell" data-cell="0"></div>
+      <div class="cell" data-cell="1"></div>
+      <div class="cell" data-cell="2"></div>
+      <div class="cell" data-cell="3"></div>
+      <div class="cell" data-cell="4"></div>
+      <div class="cell" data-cell="5"></div>
+      <div class="cell" data-cell="6"></div>
+      <div class="cell" data-cell="7"></div>
+      <div class="cell" data-cell="8"></div>
+    </div>
+
+    <div class="game-controls">
+      <button id="btn-rematch" style="display:none">Rematch</button>
+      <button id="btn-leave" class="danger">Leave</button>
+    </div>
+
+    <div class="move-log">
+      <h3>Move Log</h3>
+      <ul id="move-log"></ul>
+    </div>
+  </section>
+</main>
+
+<footer>
+  Built with <a href="https://github.com/nicholasgasior/browsermesh" target="_blank">BrowserMesh</a> —
+  no server, pure browser P2P
+</footer>
+
+<script type="module" src="app.mjs"></script>
+</body>
+</html>

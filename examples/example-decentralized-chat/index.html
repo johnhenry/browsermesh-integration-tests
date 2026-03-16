@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Decentralized Chat</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Username prompt -->
+  <div id="username-modal">
+    <div class="modal-card">
+      <h2>Decentralized Chat</h2>
+      <p>Pick a display name to join the room. No server, no accounts — just BroadcastChannel between tabs.</p>
+      <input type="text" id="username-input" placeholder="Your name" maxlength="24" autocomplete="off" autofocus>
+      <button id="join-btn">Join Chat</button>
+    </div>
+  </div>
+
+  <!-- Main app (hidden until joined) -->
+  <div id="app">
+    <header>
+      <h1>Decentralized Chat</h1>
+      <span class="badge">P2P</span>
+      <span class="pod-id" id="pod-id"></span>
+    </header>
+
+    <div id="messages"></div>
+
+    <aside id="sidebar">
+      <h3>Online</h3>
+      <div id="user-list"></div>
+    </aside>
+
+    <div id="input-area">
+      <input type="text" id="msg-input" placeholder="Type a message..." autocomplete="off">
+      <button id="send-btn">Send</button>
+    </div>
+  </div>
+
+  <script type="module" src="app.mjs"></script>
+</body>
+</html>

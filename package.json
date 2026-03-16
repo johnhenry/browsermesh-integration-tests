@@ -5,7 +5,12 @@
   "type": "module",
   "description": "Cross-package integration tests for the BrowserMesh ecosystem",
   "scripts": {
-    "test": "node --test test/*.test.mjs"
+    "test": "node --test test/*.test.mjs",
+    "serve:notes": "npx serve examples/example-p2p-notes -l 3001",
+    "serve:chat": "npx serve examples/example-decentralized-chat -l 3002",
+    "serve:lobby": "npx serve examples/example-game-lobby -l 3003",
+    "serve:sandbox": "npx serve examples/example-code-sandbox -l 3004",
+    "serve:all": "npx concurrently \"npm:serve:notes\" \"npm:serve:chat\" \"npm:serve:lobby\" \"npm:serve:sandbox\""
   },
   "dependencies": {
     "browsermesh-primitives": "file:../browsermesh-primitives",

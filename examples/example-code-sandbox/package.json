@@ -1,0 +1,11 @@
+{
+  "name": "example-code-sandbox",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Collaborative code sandbox — BrowserMesh example with sandboxed execution and real-time sync",
+  "scripts": {
+    "start": "npx serve ."
+  },
+  "license": "MIT"
+}

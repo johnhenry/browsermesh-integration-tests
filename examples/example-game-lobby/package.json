@@ -1,0 +1,8 @@
+{
+  "name": "example-game-lobby",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Multiplayer browser game lobby — BrowserMesh example with P2P game state and host migration",
+  "license": "MIT"
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>P2P Encrypted Notes</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app">
+    <!-- Header -->
+    <header class="header">
+      <h1>P2P Notes</h1>
+      <div class="status">
+        <span class="peer-id" id="peerId"></span>
+        <span id="peerCount">0 peers</span>
+        <span class="status-dot" id="statusDot"></span>
+      </div>
+    </header>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <h2>Notes</h2>
+        <button class="btn-new" id="btnNew">+ New</button>
+      </div>
+      <div class="notes-list" id="notesList"></div>
+    </aside>
+
+    <!-- Editor -->
+    <main class="editor" id="editor">
+      <div class="editor-empty" id="editorEmpty">
+        Select a note or create a new one
+      </div>
+      <div id="editorActive" style="display:none; flex-direction:column; flex:1;">
+        <input
+          type="text"
+          class="title-input"
+          id="titleInput"
+          placeholder="Note title..."
+        >
+        <textarea
+          class="content-textarea"
+          id="contentTextarea"
+          placeholder="Start writing..."
+        ></textarea>
+        <div class="editor-footer">
+          <span id="editorMeta"></span>
+          <button class="btn-delete" id="btnDelete">Delete</button>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script type="module" src="app.mjs"></script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+{
+  "name": "example-decentralized-chat",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Decentralized browser chat — BrowserMesh example using pods, presence, and P2P messaging",
+  "license": "MIT"
+}

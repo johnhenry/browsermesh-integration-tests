@@ -30,6 +30,30 @@ npm test
 
 Requires Node.js 22+ (for `node:test` runner and Ed25519 support in Web Crypto).
 
+## Example Apps
+
+Browser-based example apps that demonstrate BrowserMesh features using BroadcastChannel for same-origin P2P sync. Open each app in two tabs to test sync.
+
+| App | Port | What it demonstrates |
+|-----|------|---------------------|
+| `example-p2p-notes` | 3001 | LWWMap CRDT note sync, Pod identity, peer discovery |
+| `example-decentralized-chat` | 3002 | Real-time messaging, presence, join/leave events |
+| `example-game-lobby` | 3003 | Room creation/joining, turn-based game sync (Tic-Tac-Toe) |
+| `example-code-sandbox` | 3004 | Live code sync, sandboxed Worker execution |
+
+### Serving examples
+
+```bash
+# Individual app
+npm run serve:notes    # http://localhost:3001
+npm run serve:chat     # http://localhost:3002
+npm run serve:lobby    # http://localhost:3003
+npm run serve:sandbox  # http://localhost:3004
+
+# All at once (requires npx concurrently)
+npm run serve:all
+```
+
 ## Development
 
 Dependencies currently use `file:` references to local sibling directories. These will switch to npm versions once the packages are published.

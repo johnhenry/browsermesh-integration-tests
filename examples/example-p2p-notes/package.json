@@ -1,0 +1,7 @@
+{
+  "name": "example-p2p-notes",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "P2P encrypted notes app — BrowserMesh example using CRDTs, identity, and pod discovery"
+}
