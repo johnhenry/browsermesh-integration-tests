@@ -19,5 +19,8 @@
     "wsh-upon-star": "file:../wsh-upon-star",
     "andbox": "file:../andbox",
     "ai-matey-middleware-andbox": "file:../ai-matey-middleware-andbox"
+  },
+  "engines": {
+    "node": ">=24.0.0"
   }
 }

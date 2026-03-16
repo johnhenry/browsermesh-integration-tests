@@ -28,7 +28,7 @@ npm install
 npm test
 ```
 
-Requires Node.js 22+ (for `node:test` runner and Ed25519 support in Web Crypto).
+Requires Node.js 24+ (for `node:test` runner and Ed25519 support in Web Crypto).
 
 ## Example Apps
 
