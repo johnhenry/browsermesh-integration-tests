@@ -13,12 +13,12 @@
     "serve:all": "npx concurrently \"npm:serve:notes\" \"npm:serve:chat\" \"npm:serve:lobby\" \"npm:serve:sandbox\""
   },
   "dependencies": {
-    "browsermesh-primitives": "file:../browsermesh-primitives",
-    "browsermesh-netway": "file:../browsermesh-netway",
-    "browsermesh-pod": "file:../browsermesh-pod",
-    "wsh-upon-star": "file:../wsh-upon-star",
-    "andbox": "file:../andbox",
-    "ai-matey-middleware-andbox": "file:../ai-matey-middleware-andbox"
+    "browsermesh-primitives": "^0.1.1",
+    "browsermesh-netway": "^0.1.1",
+    "browsermesh-pod": "^0.2.0",
+    "wsh-upon-star": "^0.1.1",
+    "andbox": "^0.1.1",
+    "ai-matey-middleware-andbox": "^0.1.1"
   },
   "engines": {
     "node": ">=24.0.0"
