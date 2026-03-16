@@ -1,0 +1,57 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Checkout browsermesh-primitives
+        uses: actions/checkout@v4
+        with:
+          repository: johnhenry/browsermesh-primitives
+          path: ../browsermesh-primitives
+
+      - name: Checkout browsermesh-netway
+        uses: actions/checkout@v4
+        with:
+          repository: johnhenry/browsermesh-netway
+          path: ../browsermesh-netway
+
+      - name: Checkout browsermesh-pod
+        uses: actions/checkout@v4
+        with:
+          repository: johnhenry/browsermesh-pod
+          path: ../browsermesh-pod
+
+      - name: Checkout wsh-upon-star
+        uses: actions/checkout@v4
+        with:
+          repository: johnhenry/wsh-upon-star
+          path: ../wsh-upon-star
+
+      - name: Checkout andbox
+        uses: actions/checkout@v4
+        with:
+          repository: johnhenry/andbox
+          path: ../andbox
+
+      - name: Checkout ai-matey-middleware-andbox
+        uses: actions/checkout@v4
+        with:
+          repository: johnhenry/ai-matey-middleware-andbox
+          path: ../ai-matey-middleware-andbox
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - run: npm install
+      - run: npm test
