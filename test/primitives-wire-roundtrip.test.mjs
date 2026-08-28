@@ -8,7 +8,7 @@ import {
   parseScope, matchScope, CapabilityToken,
   VectorClock, LWWRegister, GCounter, PNCounter, ORSet, LWWMap,
   MeshError, MeshProtocolError, MeshCapabilityError,
-} from 'browsermesh-primitives'
+} from '@johnhenry/browsermesh-primitives'
 
 describe('wire format encode/decode roundtrip', () => {
   it('roundtrips a UNICAST message', () => {

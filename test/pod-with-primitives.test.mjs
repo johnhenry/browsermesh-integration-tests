@@ -7,12 +7,12 @@ import {
   POD_RPC_REQUEST, POD_RPC_RESPONSE,
   createHello, createHelloAck, createGoodbye, createMessage,
   createRpcRequest, createRpcResponse,
-} from 'browsermesh-pod'
+} from '@johnhenry/browsermesh-pod'
 
 import {
   PodIdentity, MESH_TYPE, encodeMeshMessage, decodeMeshMessage,
   CapabilityToken, matchScope,
-} from 'browsermesh-primitives'
+} from '@johnhenry/browsermesh-primitives'
 
 describe('Pod uses PodIdentity from primitives', () => {
   it('Pod can be instantiated and starts in idle state', () => {

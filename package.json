@@ -13,9 +13,9 @@
     "serve:all": "npx concurrently \"npm:serve:notes\" \"npm:serve:chat\" \"npm:serve:lobby\" \"npm:serve:sandbox\""
   },
   "dependencies": {
-    "browsermesh-primitives": "^0.1.1",
-    "browsermesh-netway": "^0.1.1",
-    "browsermesh-pod": "^0.2.0",
+    "@johnhenry/browsermesh-primitives": "^0.0.0",
+    "@johnhenry/browsermesh-netway": "^0.0.0",
+    "@johnhenry/browsermesh-pod": "^0.0.0",
     "@johnhenry/wsh": "^0.14.0",
     "andbox": "^0.1.1",
     "@johnhenry/aimatey-middleware-andbox": "^0.0.0"

@@ -4,14 +4,14 @@ import { readFile } from 'node:fs/promises'
 
 // Import all packages and verify they export the expected symbols
 
-import * as primitives from 'browsermesh-primitives'
-import * as netway from 'browsermesh-netway'
-import * as pod from 'browsermesh-pod'
+import * as primitives from '@johnhenry/browsermesh-primitives'
+import * as netway from '@johnhenry/browsermesh-netway'
+import * as pod from '@johnhenry/browsermesh-pod'
 import * as wsh from '@johnhenry/wsh'
 import * as andbox from 'andbox'
 import * as middleware from '@johnhenry/aimatey-middleware-andbox'
 
-describe('browsermesh-primitives exports', () => {
+describe('@johnhenry/browsermesh-primitives exports', () => {
   const expected = [
     'MESH_TYPE', 'MESH_ERROR',
     'MeshError', 'MeshProtocolError', 'MeshCapabilityError',
@@ -31,7 +31,7 @@ describe('browsermesh-primitives exports', () => {
   }
 })
 
-describe('browsermesh-netway exports', () => {
+describe('@johnhenry/browsermesh-netway exports', () => {
   const expected = [
     'DEFAULTS', 'GATEWAY_ERROR', 'CAPABILITY',
     'NetwayError', 'ConnectionRefusedError', 'PolicyDeniedError',
@@ -51,7 +51,7 @@ describe('browsermesh-netway exports', () => {
   }
 })
 
-describe('browsermesh-pod exports', () => {
+describe('@johnhenry/browsermesh-pod exports', () => {
   const expected = [
     'Pod', 'detectPodKind', 'detectCapabilities',
     'POD_HELLO', 'POD_HELLO_ACK', 'POD_GOODBYE', 'POD_MESSAGE',
@@ -138,8 +138,8 @@ describe('@johnhenry/aimatey-middleware-andbox exports', () => {
 })
 
 describe('cross-package type compatibility', () => {
-  it('browsermesh-pod peer-depends on browsermesh-primitives PodIdentity', async () => {
-    // Pod imports PodIdentity from browsermesh-primitives at module level.
+  it('@johnhenry/browsermesh-pod peer-depends on @johnhenry/browsermesh-primitives PodIdentity', async () => {
+    // Pod imports PodIdentity from @johnhenry/browsermesh-primitives at module level.
     // If the import resolution failed, Pod would not be constructable.
     const p = new pod.Pod()
     assert.equal(p.state, 'idle')
@@ -183,9 +183,9 @@ describe('cross-package type compatibility', () => {
 describe('package.json versions are consistent', () => {
   it('all packages have version fields', async () => {
     const packages = [
-      'browsermesh-primitives',
-      'browsermesh-netway',
-      'browsermesh-pod',
+      '@johnhenry/browsermesh-primitives',
+      '@johnhenry/browsermesh-netway',
+      '@johnhenry/browsermesh-pod',
       '@johnhenry/wsh',
       'andbox',
       '@johnhenry/aimatey-middleware-andbox',
