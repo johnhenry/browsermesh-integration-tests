@@ -9,9 +9,9 @@ Cross-package integration tests for the BrowserMesh ecosystem. Verifies that all
 | `browsermesh-primitives` | Wire format, identity (Ed25519), CRDTs, capabilities, trust, ACL |
 | `browsermesh-netway` | Virtual networking — TCP-like streams, UDP datagrams, policy engine |
 | `browsermesh-pod` | Pod base class with identity, discovery, and peer messaging |
-| `wsh-upon-star` | Web Shell — CBOR protocol, Ed25519 auth, transports, sessions |
+| `@johnhenry/wsh` | Web Shell — CBOR protocol, Ed25519 auth, transports, sessions |
 | `andbox` | Sandboxed JavaScript runtime with Worker isolation and RPC |
-| `ai-matey-middleware-andbox` | ai.matey middleware for code-based tool execution via andbox |
+| `@johnhenry/aimatey-middleware-andbox` | ai.matey middleware for code-based tool execution via andbox |
 
 ## Test Coverage
 

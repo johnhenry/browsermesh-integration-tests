@@ -7,9 +7,9 @@ import { readFile } from 'node:fs/promises'
 import * as primitives from 'browsermesh-primitives'
 import * as netway from 'browsermesh-netway'
 import * as pod from 'browsermesh-pod'
-import * as wsh from 'wsh-upon-star'
+import * as wsh from '@johnhenry/wsh'
 import * as andbox from 'andbox'
-import * as middleware from 'ai-matey-middleware-andbox'
+import * as middleware from '@johnhenry/aimatey-middleware-andbox'
 
 describe('browsermesh-primitives exports', () => {
   const expected = [
@@ -69,7 +69,7 @@ describe('browsermesh-pod exports', () => {
   }
 })
 
-describe('wsh-upon-star exports', () => {
+describe('@johnhenry/wsh exports', () => {
   const expected = [
     'cborEncode', 'cborDecode', 'frameEncode', 'FrameDecoder',
     'MSG', 'MSG_NAMES', 'CHANNEL_KIND', 'AUTH_METHOD', 'PROTOCOL_VERSION',
@@ -81,7 +81,14 @@ describe('wsh-upon-star exports', () => {
     'generateKeyPair', 'exportPublicKeyRaw', 'exportPublicKeySSH',
     'importPublicKeyRaw', 'sign', 'verify',
     'fingerprint', 'shortFingerprint', 'generateNonce',
-    'WshTransport', 'WebSocketTransport',
+    // 0.14.x additions: auth transcript binding, signed peer records,
+    // FileChunk-based transfer, QMux wire multiplexing
+    'buildTranscript', 'signChallenge', 'verifyChallenge',
+    'buildPeerRecordTranscript', 'signPeerRecord', 'verifyPeerRecord',
+    'fileOp', 'fileResult', 'fileChunk',
+    'reverseRegister', 'reverseList', 'reverseConnect',
+    'QMuxConnection', 'QMUX_DEFAULTS', 'WS_FRAME_TYPE',
+    'WshTransport', 'WebSocketTransport', 'WebTransportTransport',
     'WshSession', 'WshVirtualSessionBackend',
     'WshClient', 'WshKeyStore',
     'WshFileTransfer', 'SessionRecorder', 'SessionPlayer',
@@ -114,7 +121,7 @@ describe('andbox exports', () => {
   }
 })
 
-describe('ai-matey-middleware-andbox exports', () => {
+describe('@johnhenry/aimatey-middleware-andbox exports', () => {
   const expected = [
     'createCodeExecutionMiddleware',
     'extractCodeBlocks', 'stripCodeBlocks',
@@ -179,9 +186,9 @@ describe('package.json versions are consistent', () => {
       'browsermesh-primitives',
       'browsermesh-netway',
       'browsermesh-pod',
-      'wsh-upon-star',
+      '@johnhenry/wsh',
       'andbox',
-      'ai-matey-middleware-andbox',
+      '@johnhenry/aimatey-middleware-andbox',
     ]
 
     for (const pkg of packages) {

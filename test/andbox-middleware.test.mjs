@@ -12,7 +12,7 @@ import {
   adaptPythonisms, autoAwait,
   toolsToCapabilities, toolsToPreamble,
   formatResults, resultsToToolCalls,
-} from 'ai-matey-middleware-andbox'
+} from '@johnhenry/aimatey-middleware-andbox'
 
 describe('andbox inline sandbox executes code', () => {
   it('runs simple expressions and captures output', async () => {

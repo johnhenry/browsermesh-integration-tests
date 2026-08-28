@@ -10,7 +10,7 @@ import {
   msgName, isValidMessage,
   generateKeyPair, exportPublicKeyRaw, sign, verify,
   fingerprint, generateNonce,
-} from 'wsh-upon-star'
+} from '@johnhenry/wsh'
 
 describe('CBOR encode/decode roundtrip', () => {
   it('roundtrips primitive types', () => {

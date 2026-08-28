@@ -9,7 +9,7 @@ This example app showcases BrowserMesh patterns using pure browser APIs:
 - **Pod lifecycle** — Each tab creates a `SandboxPod` with a unique identity. Pods announce themselves, track peers, and clean up on shutdown.
 - **Real-time sync** — Code edits broadcast to all connected tabs via `BroadcastChannel`, simulating the CRDT sync layer a `SharedWorkerPod` would provide.
 - **Sandboxed execution** — Code runs inside a short-lived `Worker` (simulating a `WorkerPod`) with restricted capabilities: no `fetch`, no `WebSocket`, no `indexedDB`. The worker is terminated after execution or on timeout.
-- **Session protocol** — The announce/heartbeat/cleanup cycle mirrors the session handshake and keepalive patterns from the wsh-upon-star protocol.
+- **Session protocol** — The announce/heartbeat/cleanup cycle mirrors the session handshake and keepalive patterns from the @johnhenry/wsh protocol.
 
 ## Packages Referenced
 
@@ -18,7 +18,7 @@ This example app showcases BrowserMesh patterns using pure browser APIs:
 | **andbox** | Concept: sandboxed code execution in isolated workers |
 | **browsermesh-primitives** | Concept: wire format, CRDTs for shared document state |
 | **browsermesh-pod** | Concept: Pod identity, lifecycle (boot/running/stopped) |
-| **wsh-upon-star** | Concept: session announce, heartbeat, peer tracking |
+| **@johnhenry/wsh** | Concept: session announce, heartbeat, peer tracking |
 
 ## How to Run
 
